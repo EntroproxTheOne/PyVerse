@@ -1,0 +1,6 @@
+# requirements.txt
+pygame
+PyOpenGL
+PyOpenGL_accelerate
+numpy
+splash

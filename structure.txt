@@ -1,0 +1,13 @@
+PyVerse/
+├── main.py
+├── menu.py
+├── simulation.py
+├── splash.py            ← New
+├── config.py
+├── settings.py
+├── save_load.py
+├── icon.png             ← App icon
+├── splashscr.png        ← Splash image
+├── README.md
+├── requirements.txt
+└── saves/               ← Auto-created
