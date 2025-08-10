@@ -3,7 +3,9 @@ import pygame
 from pygame.locals import *
 from config import *
 
-# Shared screen state
+# Load icon once
+menu_icon = None
+
 screen_state = {'width': SCREEN_WIDTH, 'height': SCREEN_HEIGHT}
 
 class Button:
@@ -30,7 +32,6 @@ class Button:
 
 
 class FloatingPlanet:
-    """Simple 2D animated planet for menu background"""
     def __init__(self, x, y, vx, vy, radius, color):
         self.x = x
         self.y = y
@@ -50,7 +51,17 @@ class FloatingPlanet:
 
 
 def run_menu(screen, clock, settings):
-    # Initialize animated planets
+    global menu_icon
+
+    # Load icon
+    if menu_icon is None:
+        try:
+            menu_icon = pygame.image.load("icon.png")
+            menu_icon = pygame.transform.scale(menu_icon, (64, 64))
+        except:
+            menu_icon = None
+
+    # Background planets
     bg_planets = [
         FloatingPlanet(200, 100, 0.5, 0.3, 4, (0, 100, 255)),
         FloatingPlanet(700, 600, -0.4, 0.6, 3, (255, 200, 0)),
@@ -86,7 +97,6 @@ def run_menu(screen, clock, settings):
         for event in pygame.event.get():
             if event.type == QUIT:
                 return "exit"
-
             elif event.type == VIDEORESIZE:
                 current_screen = pygame.display.set_mode((event.w, event.h), RESIZABLE)
                 screen_state.update(width=event.w, height=event.h)
@@ -97,23 +107,27 @@ def run_menu(screen, clock, settings):
                 if btn.is_clicked(event):
                     return btn.action()
 
-        # Update background planets
+        # Update bg
         for p in bg_planets:
             p.update(screen_state['width'], screen_state['height'])
 
-        # Draw 2D-only
+        # Draw
         current_screen.fill(BLACK)
 
-        # Draw bg planets
         for p in bg_planets:
             p.draw(current_screen)
 
-        # Draw title
-        title = title_font.render("PyVerse", True, WHITE)
-        title_rect = title.get_rect(center=(screen_state['width'] // 2, 150))
-        current_screen.blit(title, title_rect)
+        # Draw icon + title
+        title_x = screen_state['width'] // 2 - 100
+        icon_x = title_x - 80
+        icon_y = 120
 
-        # Draw buttons
+        if menu_icon:
+            current_screen.blit(menu_icon, (icon_x, icon_y))
+
+        title = title_font.render("PyVerse", True, WHITE)
+        current_screen.blit(title, (title_x, 130))
+
         for btn in buttons:
             btn.draw(current_screen)
 
