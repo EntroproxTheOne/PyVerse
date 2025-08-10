@@ -2,7 +2,7 @@
 
 A fully interactive 3D gravity simulator built in Python. Create stars, planets, and entire solar systems with real physics.
 
-![PyVerse Screenshot](splashscr.png)
+![PyVerse Screenshot](icon.png)
 
 ## 🔧 Features
 - Real N-body gravity simulation
