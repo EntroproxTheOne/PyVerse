@@ -14,11 +14,7 @@ A fully interactive 3D gravity simulator built in Python. Create stars, planets,
 - 3D grid for navigation
 - Custom icons and splash screen
 
-## 🚀 How to Run
 
-1. Install dependencies:
-```bash
-pip install -r requirements.txt
 
 ===========================CONTROLS===========================
 
@@ -33,3 +29,9 @@ R=Reset camera
 
 
 Built with: PyGame, PyOpenGL, NumPy
+
+## 🚀 How to Run
+
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
