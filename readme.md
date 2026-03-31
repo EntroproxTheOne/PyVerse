@@ -12,7 +12,7 @@ A fully interactive 3D gravity simulator built in Python. Create stars, planets,
 - Save/load universe
 - Settings persistence
 - 3D grid for navigation
-- Custom icons and splash screen
+- Custom icons and splash screens
 
 
 
