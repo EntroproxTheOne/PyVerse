@@ -23,7 +23,7 @@ Left-click + drag=Pan camera
 Right-click=Add star
 Scroll_wheel= Zoom in/out
 Space=Pause/resume
-Esc=Back to menu
+Esc=Back to menu.
 G=Toggle grid
 R=Reset camera
 
